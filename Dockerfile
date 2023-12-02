@@ -6,5 +6,5 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 80
 CMD ["sh", "-c", "npm run migrate && npm run seeds && npm start"]
