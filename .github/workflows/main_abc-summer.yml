@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy container app to Azure Web App - abc-green
+name: Build and deploy container app to Azure Web App - abc-summer
 
 on:
   push:
@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_80517b670f6b4b69883397787a2eb6da }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_f63592c1dca045c6be9825662f636ee5 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_ee9eb7b9492f44689893497d6c1044d0 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_8e4160193d924331b5bb2f78e8ce502d }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_80517b670f6b4b69883397787a2eb6da }}/cse-abc:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_ee9eb7b9492f44689893497d6c1044d0 }}/abc-summer:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -45,7 +45,7 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'abc-green'
+        app-name: 'abc-summer'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_351e7c4c26fd4353aab44a9ec3bdfd54 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_80517b670f6b4b69883397787a2eb6da }}/cse-abc:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_bf36bf9eee394be08a464cd3d9c20642 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_ee9eb7b9492f44689893497d6c1044d0 }}/abc-summer:${{ github.sha }}'
