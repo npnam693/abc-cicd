@@ -7,7 +7,7 @@ const passportStrategy = require('./passport');
 require('dotenv').config();
 
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,6 +29,6 @@ app.use(passport.session());
 // Routes
 route(app);
 
-app.listen(3000, () => {
-    console.log('Server on port', 3000);
+app.listen(8080, () => {
+    console.log('Server on port', 8080);
 });
