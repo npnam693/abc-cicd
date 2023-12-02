@@ -1,21 +1,19 @@
 version: '3'
 
 services:
-  postgres:
-    image: postgres:latest
-    environment:
-      POSTGRES_DB: abcDatabase
-      POSTGRES_USER: abc
-      POSTGRES_PASSWORD: abc_PASSWORD
-    ports:
-      - "5432:5432"
+#   postgres:
+#     image: postgres:latest
+#     environment:
+#       POSTGRES_DB: abcDatabase
+#       POSTGRES_USER: abc
+#       POSTGRES_PASSWORD: abc_PASSWORD
+#     ports:
+#       - "5432:5432"
 
   nodejs-app:
     build: .
     ports:
       - "80:80" 
-    depends_on:
-      - postgres
-    networks:
-    - postgres
+    # depends_on:
+    #   - postgres
 
