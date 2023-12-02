@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nodejs-app:
+    build: .
+    ports:
+      - "8888:3000" 
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: abcDatabase
+      POSTGRES_USER: abc
+      POSTGRES_PASSWORD: abc_PASSWORD
+    ports:
+      - "5432:5432"
+
+
+
